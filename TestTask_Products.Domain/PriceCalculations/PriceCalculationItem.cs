@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TestTask_Products.PriceCalculations
+namespace TestTask_Products.Domain.PriceCalculations
 {
     public class PriceCalculationItem
     {

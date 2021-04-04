@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTask_Products", "TestTask_Products\TestTask_Products.csproj", "{502DB7F7-CDBD-4DEA-8097-3DF18ACA835E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestTask_Products.Domain", "TestTask_Products.Domain\TestTask_Products.Domain.csproj", "{502DB7F7-CDBD-4DEA-8097-3DF18ACA835E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PointOfSaleTerminal", "PointOfSaleTerminal\PointOfSaleTerminal.csproj", "{187D47E5-A135-4F0C-B947-6EC73062DBA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestTask_Products.Terminals", "TestTask_Products.Terminals\TestTask_Products.Terminals.csproj", "{187D47E5-A135-4F0C-B947-6EC73062DBA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{40FB7B79-DA3D-4F00-8089-9A9EE9E6957D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTask_Products.Tests", "TestTask_Products.Tests\TestTask_Products.Tests.csproj", "{40FB7B79-DA3D-4F00-8089-9A9EE9E6957D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTask_Products.DataAccess", "TestTask_Products.DataAccess\TestTask_Products.DataAccess.csproj", "{150F2C1C-63FE-44AE-9CD1-5598093F0377}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestTask_Products.DataAccess", "TestTask_Products.DataAccess\TestTask_Products.DataAccess.csproj", "{150F2C1C-63FE-44AE-9CD1-5598093F0377}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

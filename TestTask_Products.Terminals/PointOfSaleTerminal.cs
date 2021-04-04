@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using TestTask_Products;
-using TestTask_Products.PriceCalculations;
+using TestTask_Products.Domain;
+using TestTask_Products.Domain.PriceCalculations;
 
-namespace PointOfSaleTerminal
+namespace TestTask_Products.Terminals
 {
     public class PointOfSaleTerminal
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace TestTask_Products
+namespace TestTask_Products.Domain
 {
     public class ProductService
     {

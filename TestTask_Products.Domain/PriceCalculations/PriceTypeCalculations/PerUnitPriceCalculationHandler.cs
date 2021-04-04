@@ -1,4 +1,4 @@
-﻿namespace TestTask_Products.PriceCalculations
+﻿namespace TestTask_Products.Domain.PriceCalculations
 {
     class PerUnitPriceCalculationHandler : PriceTypeCalculationHandler
     {

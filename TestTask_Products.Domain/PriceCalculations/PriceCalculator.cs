@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace TestTask_Products.PriceCalculations
+namespace TestTask_Products.Domain.PriceCalculations
 {
     public class PriceCalculator
     {
