@@ -8,8 +8,8 @@ namespace TestTask_Products.Terminals
 {
     public class PointOfSaleTerminal
     {
-        protected ProductService _productService;
-        protected PriceCalculator _priceCalculator;
+        protected readonly ProductService _productService;
+        protected readonly PriceCalculator _priceCalculator;
 
         protected IDictionary<string, int> _scannedProducts = new Dictionary<string, int>();
 
@@ -35,18 +35,29 @@ namespace TestTask_Products.Terminals
                 _scannedProducts.Add(id, 1);
         }
 
-        public double CalculateTotal()
+        public decimal CalculateTotal()
         {
             var products = _productService.Get(p => _scannedProducts.Keys.Any(key => key == p.Id)).ToList();
 
-            var calculationItems = products.Select(p => 
-                new PriceCalculationItem(p.Id, _scannedProducts[p.Id], p.PerUnitPrice) 
-                { 
-                    PerGroupPrice = p.PerGroupPrice 
-                });
+            //same as below but with Select instead of join
+            //var calculationItems = products.Select(p =>
+            //    new PriceCalculationItem(p.Id, _scannedProducts[p.Id], p.PerUnitPrice)
+            //    {
+            //        PerGroupPrice = p.PerGroupPrice
+            //    })
+            //.ToList();
 
-            return (double)_priceCalculator.CalculateTotal(calculationItems);
-        } 
+            var calculationItems = products.Join(_scannedProducts,
+                p => p.Id, sp => sp.Key,
+                (product, scannedProduct) =>
+                    new PriceCalculationItem(product.Id, scannedProduct.Value, product.PerUnitPrice)
+                    {
+                        PerGroupPrice = product.PerGroupPrice
+                    })
+                .ToList();
+
+            return _priceCalculator.CalculateTotal(calculationItems);
+        }
 
         public void Reset()
         {

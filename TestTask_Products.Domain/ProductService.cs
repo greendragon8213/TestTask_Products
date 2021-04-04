@@ -5,7 +5,7 @@ namespace TestTask_Products.Domain
 {
     public class ProductService
     {
-        protected IProductStorage _productStorage;
+        protected readonly IProductStorage _productStorage;
 
         public ProductService(IProductStorage productStorage)
         {

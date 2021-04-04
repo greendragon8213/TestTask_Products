@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TestTask_Products.DataAccess\TestTask_Products.DataAccess.csproj" />
     <ProjectReference Include="..\TestTask_Products.Terminals\TestTask_Products.Terminals.csproj" />
   </ItemGroup>
 

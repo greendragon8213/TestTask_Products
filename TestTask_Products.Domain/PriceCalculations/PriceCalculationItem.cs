@@ -37,7 +37,7 @@ namespace TestTask_Products.Domain.PriceCalculations
                 if (value <= 0)
                     throw new ArgumentException();
 
-                _count = Count;
+                _count = value;
             }
         }
     }

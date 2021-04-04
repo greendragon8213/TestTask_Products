@@ -8,6 +8,7 @@ namespace TestTask_Products
 
         public Product(string id, PerUnitPrice perUnitPrice)
         {
+            Id = id;
             PerUnitPrice = perUnitPrice;
         }
 
