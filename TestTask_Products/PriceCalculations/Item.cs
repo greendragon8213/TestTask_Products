@@ -1,4 +1,4 @@
-﻿namespace TestTask_Products
+﻿namespace TestTask_Products.PriceCalculations
 {
     public class Item
     {

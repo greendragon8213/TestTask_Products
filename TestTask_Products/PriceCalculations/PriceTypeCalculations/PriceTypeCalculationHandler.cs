@@ -1,18 +1,18 @@
-﻿namespace TestTask_Products
+﻿namespace TestTask_Products.PriceCalculations
 {
     abstract class PriceTypeCalculationHandler
     {
         protected PriceTypeCalculationHandler _nextHandler { get; set; }
 
-        public PriceTypeCalculationHandler()
+        internal PriceTypeCalculationHandler()
         { }
 
-        public PriceTypeCalculationHandler(PriceTypeCalculationHandler next)
+        internal PriceTypeCalculationHandler(PriceTypeCalculationHandler next)
         {
             _nextHandler = next;
         }
 
-        public virtual decimal Handle(Item item, ref int remainingItemsCount)
+        internal virtual decimal Handle(Item item, ref int remainingItemsCount)
         {
             if (remainingItemsCount <= 0)
                 return 0.0m;

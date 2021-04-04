@@ -1,11 +1,11 @@
-﻿namespace TestTask_Products
+﻿namespace TestTask_Products.PriceCalculations
 {
     class PerUnitPriceCalculationHandler : PriceTypeCalculationHandler
     {
-        public PerUnitPriceCalculationHandler() : base()
+        internal PerUnitPriceCalculationHandler() : base()
         { }
 
-        public PerUnitPriceCalculationHandler(PriceTypeCalculationHandler next) : base(next)
+        internal PerUnitPriceCalculationHandler(PriceTypeCalculationHandler next) : base(next)
         {
         }
 
