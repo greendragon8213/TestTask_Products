@@ -9,16 +9,18 @@
         {
         }
 
-        protected override void Calculate(Item item)
+        protected override decimal Calculate(Item item, ref int remainingItemsCount)
         {
+            decimal price = 0.0m;
+
             if (item.PerGroupPrice != null)
             {
-                int groupsCount = GetGroupsCount(item);
-                item.TotalPrice += groupsCount * item.PerGroupPrice.Value;
-                item.RemainingCount -= groupsCount * item.PerGroupPrice.ItemsInGroupCount;
+                var groupsCount = remainingItemsCount / item.PerGroupPrice.ItemsInGroupCount;
+                price = groupsCount * item.PerGroupPrice.Value;
+                remainingItemsCount -= groupsCount * item.PerGroupPrice.ItemsInGroupCount;
             }
-        }
 
-        private int GetGroupsCount(Item item) => item.RemainingCount / item.PerGroupPrice.ItemsInGroupCount;
+            return price;
+        }
     }
 }

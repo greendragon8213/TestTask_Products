@@ -12,19 +12,18 @@
             _nextHandler = next;
         }
 
-        public virtual void Handle(Item item)
+        public virtual decimal Handle(Item item, ref int remainingItemsCount)
         {
-            if (item == null)
-                return; //or throw exception?
+            if (remainingItemsCount <= 0)
+                return 0.0m;
 
-            if (item.RemainingCount <= 0)
-                return;
+            var totalPrice = Calculate(item, ref remainingItemsCount);
 
-            Calculate(item);
+            totalPrice += _nextHandler?.Handle(item, ref remainingItemsCount) ?? 0.0m;
 
-            _nextHandler?.Handle(item);
+            return totalPrice;
         }
 
-        protected abstract void Calculate(Item item);
+        protected abstract decimal Calculate(Item item, ref int remainingItemsCount);
     }
 }

@@ -5,9 +5,11 @@
         private readonly PriceTypeCalculationHandler _calculationChain = 
             new PerGroupPriceCalculationHandler(new PerUnitPriceCalculationHandler());
 
-        public void Handle(Item item)
+        //ToDo: mb rename to Calculate or smth?
+        public decimal Calculate(Item item)
         {
-            _calculationChain.Handle(item);
+            var remainingItemsCount = item.Count;
+            return _calculationChain.Handle(item, ref remainingItemsCount);
         }
     }
 }

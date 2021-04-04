@@ -9,14 +9,17 @@
         {
         }
 
-        protected override void Calculate(Item item)
+        protected override decimal Calculate(Item item, ref int remainingItemsCount)
         {
+            decimal price = 0.0m;
+
             if (item.PerUnitPrice != null)
             {
-                var itemsCount = item.RemainingCount;
-                item.TotalPrice += itemsCount * item.PerUnitPrice.Value;
-                item.RemainingCount = 0;
+                price = remainingItemsCount * item.PerUnitPrice.Value;
+                remainingItemsCount = 0;
             }
+
+            return price;
         }
     }
 }
