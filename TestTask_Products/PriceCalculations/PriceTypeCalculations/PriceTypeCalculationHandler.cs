@@ -12,18 +12,21 @@
             _nextHandler = next;
         }
 
-        internal virtual decimal Handle(Item item, ref int remainingItemsCount)
+        internal virtual decimal Handle(PriceCalculationItem item, ref int remainingItemsCount)
         {
             if (remainingItemsCount <= 0)
                 return 0.0m;
 
             var totalPrice = Calculate(item, ref remainingItemsCount);
 
-            totalPrice += _nextHandler?.Handle(item, ref remainingItemsCount) ?? 0.0m;
+            if (_nextHandler == null)
+                return totalPrice;
+
+            totalPrice += _nextHandler.Handle(item, ref remainingItemsCount);
 
             return totalPrice;
         }
 
-        protected abstract decimal Calculate(Item item, ref int remainingItemsCount);
+        protected abstract decimal Calculate(PriceCalculationItem item, ref int remainingItemsCount);
     }
 }

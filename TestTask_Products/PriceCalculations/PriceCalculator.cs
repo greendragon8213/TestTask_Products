@@ -12,7 +12,7 @@ namespace TestTask_Products.PriceCalculations
             _priceCalculationChain = priceCalculationChain;
         }
 
-        public decimal CalculateTotal(IEnumerable<Item> items)
-            => items.Sum(i => _priceCalculationChain.Calculate(i));
+        public decimal CalculateTotal(IEnumerable<PriceCalculationItem> items)
+            => items.Sum(_priceCalculationChain.Calculate);
     }
 }

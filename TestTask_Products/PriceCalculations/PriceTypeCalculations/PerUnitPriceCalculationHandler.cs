@@ -9,7 +9,7 @@
         {
         }
 
-        protected override decimal Calculate(Item item, ref int remainingItemsCount)
+        protected override decimal Calculate(PriceCalculationItem item, ref int remainingItemsCount)
         {
             decimal price = 0.0m;
 
