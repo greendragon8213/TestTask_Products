@@ -26,13 +26,18 @@ namespace TestTask_Products.Terminals
 
         public void Scan(string id)
         {
+            Scan(id, 1);
+        }
+
+        public void Scan(string id, int count)
+        {
             if (!_productService.Exist(id))
                 throw new ArgumentException($"Product with id {id} doesn't exist");
 
             if (_scannedProducts.ContainsKey(id))
-                _scannedProducts[id]++;
+                _scannedProducts[id] += count;
             else
-                _scannedProducts.Add(id, 1);
+                _scannedProducts.Add(id, count);
         }
 
         public decimal CalculateTotal()

@@ -14,7 +14,7 @@ namespace Tests
         private static ProductService _productService;
         private static PriceCalculator _priceCalculator;
 
-        [ClassInitialize]
+        [AssemblyInitialize()]
         public static void ClassInitialize(TestContext testContext)
         {
             var productStorage = new InMemoryProductStorage();
