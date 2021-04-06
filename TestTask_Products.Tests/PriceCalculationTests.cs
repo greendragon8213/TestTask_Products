@@ -35,7 +35,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void TestMethod1()
+        public void TotalPriceIsEqualTo13_25_IfItemsScannedInOrderABCDABA()
         {
             //Arrange
             var pointOfSaleTerminal = new PointOfSaleTerminal(_productService, _priceCalculator);
@@ -53,11 +53,11 @@ namespace Tests
             var price = pointOfSaleTerminal.CalculateTotal();
 
             //Assert
-            Assert.AreEqual(13.25, price);
+            Assert.AreEqual(13.25m, price);
         }
         
         [TestMethod]
-        public void TestMethod2()
+        public void TotalPriceIsEqualTo6_IfItemsScannedInOrderCCCCCCC()
         {
             //Arrange
             var pointOfSaleTerminal = new PointOfSaleTerminal(_productService, _priceCalculator);
@@ -75,11 +75,11 @@ namespace Tests
             var price = pointOfSaleTerminal.CalculateTotal();
 
             //Assert
-            Assert.AreEqual(6.00, price);
+            Assert.AreEqual(6.00m, price);
         }
 
         [TestMethod]
-        public void TestMethod3()
+        public void TotalPriceIsEqualTo7_25_IfItemsScannedInOrderABCD()
         {
             //Arrange
             var pointOfSaleTerminal = new PointOfSaleTerminal(_productService, _priceCalculator);
@@ -94,7 +94,7 @@ namespace Tests
             var price = pointOfSaleTerminal.CalculateTotal();
 
             //Assert
-            Assert.AreEqual(7.25, price);
+            Assert.AreEqual(7.25m, price);
         }
     }
 }

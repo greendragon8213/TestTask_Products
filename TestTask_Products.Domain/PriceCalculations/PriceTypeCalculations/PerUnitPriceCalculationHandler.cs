@@ -11,7 +11,7 @@
 
         protected override decimal Calculate(PriceCalculationItem item, ref int remainingItemsCount)
         {
-            decimal price = 0.0m;
+            var price = 0.0m;
 
             if (item.PerUnitPrice != null)
             {

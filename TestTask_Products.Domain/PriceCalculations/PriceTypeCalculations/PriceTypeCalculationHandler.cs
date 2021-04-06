@@ -1,8 +1,12 @@
-﻿namespace TestTask_Products.Domain.PriceCalculations
+﻿using System;
+
+namespace TestTask_Products.Domain.PriceCalculations
 {
     abstract class PriceTypeCalculationHandler
     {
         protected PriceTypeCalculationHandler _nextHandler { get; set; }
+
+        protected bool IsLastHandler => _nextHandler == null;
 
         internal PriceTypeCalculationHandler()
         { }
@@ -19,7 +23,11 @@
 
             var totalPrice = Calculate(item, ref remainingItemsCount);
 
-            if (_nextHandler == null)
+            if (IsLastHandler && remainingItemsCount != 0)
+                throw new InvalidOperationException($"Couldn't calculate price of {item.ProductId} " +
+                    $"for requested items count - {item.Count}. Try calculate for {item.Count - remainingItemsCount} items");
+
+            if(IsLastHandler)
                 return totalPrice;
 
             totalPrice += _nextHandler.Handle(item, ref remainingItemsCount);
